@@ -1,0 +1,32 @@
+Python 3.13.17 | GIL enabled | 10 rounds
+
+=== Fibonacci Computation (With Multithreading) ===
+Round  1: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  23,499,286,662 ns
+Round  2: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  24,253,646,174 ns
+Round  3: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  24,665,494,924 ns
+Round  4: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  24,282,437,729 ns
+Round  5: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,211,852,340 ns
+Round  6: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,285,485,670 ns
+Round  7: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  23,320,165,922 ns
+Round  8: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,978,867,930 ns
+Round  9: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  23,002,429,034 ns
+Round 10: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  23,312,292,885 ns
+Average T (With Multithreading): 23,381,195,927 ns  (~23.38 s)
+
+=== Fibonacci Computation (Without Multithreading) ===
+Round  1: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,128,893,395 ns
+Round  2: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  21,335,055,040 ns
+Round  3: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,481,136,904 ns
+Round  4: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,580,436,300 ns
+Round  5: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,044,300,464 ns
+Round  6: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,060,356,394 ns
+Round  7: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,715,732,338 ns
+Round  8: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  23,399,089,274 ns
+Round  9: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  21,965,055,558 ns
+Round 10: Fib(35)=9227465, Fib(38)=39088169, Fib(40)=102334155 | T =  22,248,674,242 ns
+Average T (Without Multithreading): 22,295,872,991 ns  (~22.30 s)
+
+=== Summary ===
+Average T with multithreading    :     23,381,195,927 ns
+Average T without multithreading :     22,295,872,991 ns
+Observation: Multithreading was 4.9% SLOWER (threads take turns because of the GIL).
