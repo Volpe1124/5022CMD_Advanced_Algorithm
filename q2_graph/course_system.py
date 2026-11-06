@@ -1,14 +1,3 @@
-"""
-course_system.py
-University Course Prerequisite System (menu-driven, command line).
-
-Uses the generic Graph class. An edge  A -> B  means
-"A is a prerequisite of B" (completing A unlocks B), therefore:
-  * prerequisites of B  = incoming adjacent vertices of B
-  * courses unlocked by A = outgoing adjacent vertices of A
-
-Run:  python course_system.py
-"""
 from course import Course
 from graph import Graph
 
@@ -51,11 +40,9 @@ MAX_COURSES = 10
 
 
 class CourseSystem:
-    """Domain layer: connects Course objects to the generic Graph."""
-
     def __init__(self):
         self.graph = Graph()
-        self.catalogue = {}            # course code -> Course (fast lookup)
+        self.catalogue = {}
 
     def add_course(self, course):
         if course.code in self.catalogue:
@@ -75,13 +62,10 @@ class CourseSystem:
         return sorted(self.graph.listOutgoingAdjacentVertex(course))
 
     def add_prerequisite(self, course, prereq):
-        """Make `prereq` a prerequisite of `course` (edge prereq -> course)."""
         if course == prereq:
             return "A course cannot be a prerequisite of itself."
         if self.graph.hasEdge(prereq, course):
             return f"{prereq.code} is already a prerequisite of {course.code}."
-        # If course already leads to prereq, the new edge would make a cycle
-        # (no student could ever register for either course).
         if self.graph.hasPath(course, prereq):
             return (f"Rejected: {course.code} is already required (directly or "
                     f"indirectly) before {prereq.code}; this would create a cycle.")

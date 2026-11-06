@@ -1,11 +1,4 @@
-"""
-medicine.py
-Entity class that represents one pharmacy product (a medicine).
-"""
-
-
 class Medicine:
-    """A medicine product sold by the pharmacy."""
 
     CATEGORIES = ("OTC", "Prescription", "Supplement")
 

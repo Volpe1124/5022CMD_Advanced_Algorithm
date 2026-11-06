@@ -29,15 +29,14 @@ PREDEFINED = [
 
 
 class PharmacyInventory:
-    """Keeps the same records in a hash table and in a plain 1-D array."""
 
     def __init__(self, capacity=TABLE_SIZE):
         self.table = HashTable(capacity)
-        self.array = []                     # one-dimensional array (Python list)
+        self.array = []
 
     def insert(self, med: Medicine):
         slot = self.table.put(med.product_id, med)
-        for i, m in enumerate(self.array):   # keep array in sync (update case)
+        for i, m in enumerate(self.array):
             if m.product_id == med.product_id:
                 self.array[i] = med
                 break
@@ -49,7 +48,7 @@ class PharmacyInventory:
         return self.table.get(product_id)
 
     def search_array(self, product_id):
-        for med in self.array:               # linear search, O(n)
+        for med in self.array:
             if med.product_id == product_id:
                 return med
         return None
@@ -96,12 +95,9 @@ def ask_category():
         print("  Please choose 1, 2 or 3.")
 
 
-TIMING_RUNS = 10_000   # one search takes < 1 microsecond, so we repeat it
-                       # many times and report the average to remove noise
-
+TIMING_RUNS = 10_000
 
 def timed(func, *args):
-    """Run func(*args) TIMING_RUNS times; return (result, avg time in ns)."""
     result = func(*args)
     start = time.perf_counter_ns()
     for _ in range(TIMING_RUNS):

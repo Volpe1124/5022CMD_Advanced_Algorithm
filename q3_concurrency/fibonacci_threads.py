@@ -1,17 +1,3 @@
-"""
-fibonacci_threads.py
-Question 3 - Concurrent process.
-
-Calculates Fibonacci(35), Fibonacci(38) and Fibonacci(40) for 10 rounds:
-  1) WITH multithreading   - 3 threads, one per Fibonacci value
-  2) WITHOUT multithreading - the three values computed one after another
-and compares the time taken (in nanoseconds).
-
-Time_Elapsed = End_Time_Of_Thread_Finished_Last - Start_Time_Of_Thread_That_Started_First
-
-Run:  python fibonacci_threads.py
-(Fib(40) is computed recursively, so the whole run takes a few minutes.)
-"""
 import sys
 import threading
 import time
@@ -21,7 +7,6 @@ ROUNDS = 10
 
 
 def fibonacci(n):
-    """Return the nth Fibonacci number (naive recursion, O(2^n))."""
     if n <= 1:                                   # base cases: F(0)=0, F(1)=1
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)   # two recursive calls
@@ -31,8 +16,6 @@ def fibonacci(n):
 # With multithreading
 # ---------------------------------------------------------------------- #
 class FibonacciThread(threading.Thread):
-    """A thread that computes one Fibonacci number and records its own
-    start and end time in nanoseconds."""
 
     def __init__(self, n):
         super().__init__(name=f"Fib-{n}")

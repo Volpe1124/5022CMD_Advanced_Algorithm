@@ -1,11 +1,3 @@
-"""
-performance_test.py
-Experiment: compare search time in the HashTable vs a one-dimensional array.
-
-The SAME Medicine records are inserted into both structures. Every record is
-then searched for, and the average time per search is measured. The test is
-repeated for several data sizes so the growth trend can be seen.
-"""
 import random
 import time
 
@@ -13,8 +5,8 @@ from hash_table import HashTable
 from medicine import Medicine
 
 SIZES = [100, 1_000, 5_000, 10_000]
-REPEATS = 5          # repeat each measurement and keep the average
-SEED = 42            # fixed seed -> repeatable experiment
+REPEATS = 5
+SEED = 42
 
 
 def build_data(n):
@@ -32,7 +24,6 @@ def linear_search(array, product_id):
 
 
 def measure(search_fn, keys):
-    """Average nanoseconds per search over all keys, repeated REPEATS times."""
     total = 0
     for _ in range(REPEATS):
         start = time.perf_counter_ns()
@@ -72,7 +63,6 @@ def run():
         print(f"{n:>8,} | {t_hash:>15,.0f} | {avg_probes:>10.2f} | "
               f"{t_array:>12,.0f} | {t_array / t_hash:>8.1f}x")
 
-    # Worst case for the array: a key that is not stored at all
     n, data = SIZES[-1], build_data(SIZES[-1])
     table = HashTable(2 * n + 1)
     for m in data:
