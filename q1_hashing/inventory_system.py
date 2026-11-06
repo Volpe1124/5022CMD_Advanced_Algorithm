@@ -1,10 +1,3 @@
-"""
-inventory_system.py
-Command-line Pharmacy Inventory System built on the HashTable.
-
-Features: insert, search (with hash table vs array timing), edit, delete,
-list all products. Run:  python inventory_system.py
-"""
 import time
 
 from hash_table import HashTable
